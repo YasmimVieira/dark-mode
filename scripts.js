@@ -1,16 +1,33 @@
 const html = document.querySelector("html")
 const checkbox = document.querySelector("input[name=theme]")
 
+const getStyle = (element, style) => 
+    window //pegar esse estilo 
+    .getComputedStyle(element)
+    .getPropertyValue(style)
+
 
 const initialColors = {
-    bg: //pegar esse estilo 
+    bg: getStyle(html, "--bg"),  
+    bgPanel: getStyle(html, "--bg-panel"),
+    colorHeadings: getStyle(html, "--color-headings"),
+    colorText: getStyle(html, "--color-text"),
 }
 
-const changeColors = (colors) => {
+const darkMode = {
+    bg: "#333333",
+    bgPanel: "#434343",
+    colorHeadings: "#3664FF",
+    colorText: "#B5B5B5"
+}
 
+
+
+const changeColors = (colors) => {
+    
 }
 
 
 checkbox.addEventListener("change", ({target}) => {
-    target.checked ? changeColors() : changeColors()
+    target.checked ? changeColors(darkMode) : changeColors(initialColors)
 })
