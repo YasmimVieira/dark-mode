@@ -21,10 +21,13 @@ const darkMode = {
     colorText: "#B5B5B5"
 }
 
-
+const transformKey = key => 
+    "--" + key.replace(/([A-Z])/, "-$1").toLowerCase()
 
 const changeColors = (colors) => {
-    
+    Object.keys(colors).map(key =>
+        html.style.setProperty(transformKey(key), colors[key])    
+    )
 }
 
 
